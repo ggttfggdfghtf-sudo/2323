@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Разбор блога Кати Хотовой</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;600;700;800&display=swap">
+<style>
+:root{
+  --bg:#FBF4EF; --bg2:#F5E6DD; --card:#FFFFFF; --ink:#2A1A17; --ink2:#6E5650; --line:#EBD8CF;
+  --coral:#D9412A; --coral-soft:#FDE3DA; --rose:#F08A3C; --peach:#F2B79E; --on-coral:#fff;
+  --sun1:#FFD08A; --sun2:#F0603A; --sun3:#9E2416; --shadow:0 18px 40px -26px rgba(140,50,30,.4);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1A1210; --bg2:#241815; --card:#2C1E1A; --ink:#F7ECE7; --ink2:#C4ABA3; --line:#42302A;
+  --coral:#FF7A5C; --coral-soft:#3D2219; --rose:#FFA866; --peach:#7A4636; --on-coral:#1A1210;
+  --sun1:#F2B46E; --sun2:#E0522F; --sun3:#6E1A10; --shadow:0 18px 40px -26px rgba(0,0,0,.7); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1A1210; --bg2:#241815; --card:#2C1E1A; --ink:#F7ECE7; --ink2:#C4ABA3; --line:#42302A;
+  --coral:#FF7A5C; --coral-soft:#3D2219; --rose:#FFA866; --peach:#7A4636; --on-coral:#1A1210;
+  --sun1:#F2B46E; --sun2:#E0522F; --sun3:#6E1A10; --shadow:0 18px 40px -26px rgba(0,0,0,.7); color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding-inline:20px;padding-block:0 80px}
+h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:600;letter-spacing:-.01em;text-wrap:balance;margin:0}
+em{font-family:'Lora',Georgia,serif;font-style:italic;font-weight:500;color:var(--coral)}
+.label{font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--coral)}
+.hero{position:relative;padding-block:72px 48px;display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center}
+.hero h1{font-size:clamp(40px,7vw,72px);line-height:1.04;margin-top:14px}
+.hero p{color:var(--ink2);font-size:18px;max-width:46ch;margin:20px 0 0}
+.sun{aspect-ratio:1;max-width:100%;width:340px;justify-self:center;border-radius:50%;background:radial-gradient(circle at 50% 62%,var(--sun1) 0%,var(--sun2) 48%,var(--sun3) 78%,transparent 79%);position:relative}
+.sun::after{content:"подарок от команды Маши ✦";position:absolute;left:-10px;bottom:6%;background:var(--card);color:var(--coral);font-family:'Lora',serif;font-style:italic;font-size:17px;padding:12px 18px;border-radius:6px;box-shadow:var(--shadow);transform:rotate(-5deg)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-inline:-20px;padding:10px 20px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{display:inline-block;color:var(--ink2);text-decoration:none;font-size:14px;font-weight:600;padding:6px 12px;border-radius:999px}
+nav a:hover{background:var(--coral-soft);color:var(--coral)}
+section{padding-top:64px;scroll-margin-top:60px}
+section>h2{font-size:clamp(28px,4.4vw,42px);line-height:1.15;margin-top:10px}
+section>.lead{color:var(--ink2);max-width:62ch;margin:14px 0 0}
+.grid{display:grid;gap:16px;margin-top:28px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow);min-width:0}
+.card h3{font-size:22px;margin-top:14px;line-height:1.25}
+.card p{margin:8px 0 0;color:var(--ink2);font-size:16px}
+.card.hot{background:var(--coral);border-color:var(--coral)}
+.card.hot h3,.card.hot p,.card.hot .pin,.card.hot li{color:var(--on-coral)}
+.card.hot .label,.card.hot .big{color:var(--on-coral)}
+.card.hot .ic{background:color-mix(in srgb,var(--on-coral) 22%,transparent);color:var(--on-coral)}
+.ic{width:52px;height:52px;border-radius:16px;background:var(--coral-soft);color:var(--coral);display:flex;align-items:center;justify-content:center}
+.ic svg{width:28px;height:28px}
+.big{font-family:'Lora',serif;font-size:44px;line-height:1;color:var(--coral);font-variant-numeric:tabular-nums}
+.note{margin-top:22px;padding:18px 22px;border-left:3px solid var(--coral);background:var(--bg2);border-radius:0 14px 14px 0;color:var(--ink2)}
+.pin{font-size:16px;line-height:1.7;white-space:pre-line;color:var(--ink)}
+.ideas ol{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:12px;counter-reset:i}
+.ideas li{counter-increment:i;display:grid;grid-template-columns:34px 1fr;gap:8px;font-size:15.5px;line-height:1.45}
+.ideas li::before{content:counter(i,decimal-leading-zero);font-family:'Lora',serif;font-weight:600;color:var(--coral)}
+.check{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:12px}
+.check li{display:flex;gap:12px;align-items:flex-start;cursor:pointer;user-select:none;font-size:15.5px;line-height:1.45}
+.check li::before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:6px;border:2px solid var(--coral)}
+.check li b{display:block;color:var(--ink)}
+.check li span{color:var(--ink2)}
+.check li.done{opacity:.55}
+.check li.done b{text-decoration:line-through}
+.check li.done::before{background:var(--coral);box-shadow:inset 0 0 0 3px var(--card)}
+.flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;min-width:0}
+.step b{font-family:'Lora',serif;font-size:20px;color:var(--coral)}
+.step p{margin:6px 0 0;color:var(--ink2);font-size:15px}
+.final{margin-top:72px;padding:40px 32px;border-radius:28px;background:linear-gradient(140deg,var(--coral-soft),var(--bg2));border:1px solid var(--line)}
+.final h2{font-size:clamp(28px,4.4vw,40px)}
+.final p{max-width:60ch;color:var(--ink2)}
+.small{font-size:14px;color:var(--ink2)}
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;padding-top:40px}.sun{width:220px}
+  .g2,.g3,.flow{grid-template-columns:1fr}
+}
+.why{display:grid;grid-template-columns:300px 1fr;gap:24px;margin-top:28px;align-items:start}
+.why img{width:100%;border-radius:22px;box-shadow:var(--shadow);display:block}
+.steps{display:grid;gap:16px;min-width:0}
+.covers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
+.cov{aspect-ratio:9/16;max-width:100%;border-radius:20px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;box-shadow:var(--shadow)}
+.cov span{font-family:'Manrope',sans-serif;font-weight:800;font-size:clamp(15px,2.2vw,20px);line-height:1.15;text-transform:uppercase}
+.cov b{font-family:'Lora',serif;font-size:clamp(28px,4vw,40px);align-self:flex-end}
+.c1{background:linear-gradient(160deg,#E0452B,#8E1E10)}.c2{background:linear-gradient(160deg,#E85D8C,#93264F)}.c3{background:linear-gradient(160deg,#2F8F83,#1C5750)}.c4{background:linear-gradient(160deg,#3D6FD8,#1D3A85)}
+@media (max-width:760px){.why{grid-template-columns:1fr}.why img{max-width:300px}.covers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.bar{height:18px;border-radius:999px;background:var(--bg2);overflow:hidden}
+.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--rose),var(--coral))}
+.barlabels{display:flex;justify-content:space-between;margin-top:10px;font-size:15px;color:var(--ink2)}
+.barlabels b{color:var(--ink);font-family:'Lora',serif;font-size:22px}
+.check[data-static] li{cursor:default}
+.flow .step b{font-size:18px}
+</style>
+</head><body>
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <div class="label">разбор аккаунта · лично для тебя</div>
+      <h1>Катя, у тебя уже <em>2 млн лайков.</em> Осталось перестать отпускать этих людей</h1>
+      <p>TikTok @hotkat2004. Что у тебя уже работает, что мешает расти и как перевести часть зрителей в твой телеграм.</p>
+    </div>
+    <div class="sun" aria-hidden="true"></div>
+  </header>
+
+  <nav aria-label="Разделы">
+    <a href="#nums">Цифры</a><a href="#good">Что уже есть</a><a href="#grow">Что мешает</a><a href="#tg">Телеграм</a><a href="#cta">Как звать в тг</a><a href="#rubrics">Рубрики</a><a href="#vibe">Характер</a><a href="#hooks">Первые секунды</a><a href="#profile">Профиль</a><a href="#plan">План на 2 недели</a>
+  </nav>
+
+  <section id="nums">
+    <div class="label">где ты сейчас</div>
+    <h2>Это уже <em>не нулевой</em> аккаунт</h2>
+    <div class="grid g3">
+      <div class="card hot"><div class="big">20,2 тыс.</div><h3>подписчиков в TikTok</h3><p>Живая аудитория, которая уже реагирует на твой юмор.</p></div>
+      <div class="card"><div class="big">2 млн</div><h3>лайков</h3><p>Люди не просто смотрят, а отмечают. В рофл-нише это главный сигнал, что тебя узнают.</p></div>
+      <div class="card"><div class="ic" data-i="send"></div><h3>Тг «хот кэт» живой, но TikTok туда не ведёт</h3><p>Посты про жизнь там уже есть. Не хватает людей из TikTok, это главная точка роста.</p></div>
+    </div>
+  </section>
+
+  <section id="good">
+    <div class="label">что у тебя уже есть</div>
+    <h2>Ты в одной из самых <em>рабочих ниш</em></h2>
+    <div class="grid g2">
+      <div class="card"><div class="ic" data-i="heart"></div><h3>Жиза про людей и отношения</h3><p>Свидания, быт, «знаете таких?». Люди обожают узнавать себя и знакомых, и такие ролики пересылают друзьям.</p></div>
+      <div class="card"><div class="ic" data-i="camera"></div><h3>Снимать быстро</h3><p>Скетчу не нужен сложный продакшн. Значит, можно выходить регулярно и не выгорать.</p></div>
+      <div class="card"><div class="ic" data-i="repeat"></div><h3>Серии уже начинаются</h3><p>«Свидание мечты», «жиза?», «знаете таких?», «играете в симс?» — это готовые заготовки для рубрик.</p></div>
+      <div class="card"><div class="ic" data-i="smile"></div><h3>Чистый рофл</h3><p>Без поучений и «полезного контента». Ты просто смешно показываешь жизнь, и за этим приходят.</p></div>
+    </div>
+  </section>
+
+  <section id="grow">
+    <div class="label">что мешает расти</div>
+    <h2>Контент есть, <em>системы пока нет</em></h2>
+    <div class="grid g2">
+      <div class="card hot"><div class="ic" data-i="send"></div><h3>Зрители уходят в никуда</h3><p>Посмотрели, посмеялись, пролистали. Связи с тобой не осталось, хотя в тг уже есть что почитать.</p></div>
+      <div class="card"><div class="ic" data-i="box"></div><h3>Профиль выглядит личным</h3><p>Новый человек заходит и не сразу понимает: «а, тут смешные жизненные ситуации, подпишусь».</p></div>
+      <div class="card"><div class="ic" data-i="chart"></div><h3>Охваты скачут</h3><p>Форматов много, но пока не видно 2–3, которые ты крутишь специально, потому что они стабильно заходят.</p></div>
+      <div class="card"><div class="ic" data-i="eye"></div><h3>Первая секунда</h3><p>В рофле зритель за секунду решает, смотреть или листать. Тема и конфликт должны быть видны сразу.</p></div>
+    </div>
+    <div class="note">Про YouTube: в описании канала уже стоит тгк, это правильно, сделай так же в TikTok. Отдельно на YouTube силы не трать. Просто перезаливай туда лучшие ролики из TikTok как Shorts, без нового монтажа. Если не успеваешь, поставь на паузу: сейчас важнее TikTok и телеграм.</div>
+  </section>
+
+  <section id="tg">
+    <div class="label">главная точка роста</div>
+    <h2>TikTok даёт охваты, <em>телеграм оставляет людей</em></h2>
+    <p class="lead">В TikTok аудитория принадлежит алгоритму: сегодня показал, завтра урезал. Подписчик в телеграме видит каждый твой пост, и там на блоге уже можно зарабатывать. Посты про жизнь, вроде похода в кино, — как раз то, что нужно: в тг люди приходят за тобой, а не за скетчем. Осталось их туда привести.</p>
+    <div class="grid g3">
+      <div class="card"><div class="ic" data-i="pin"></div><h3>Люди остаются</h3><p>Даже если ролик не зашёл, те, кто в тг, всё равно с тобой.</p></div>
+      <div class="card"><div class="ic" data-i="chat"></div><h3>Можно быть ближе</h3><p>Посты про жизнь у тебя уже есть. Добавь кружки, неудачные дубли и опросы «что снять дальше».</p></div>
+      <div class="card"><div class="ic" data-i="cal"></div><h3>Это заработок</h3><p>Рекламу в тг покупают охотно. Чем больше у тебя там своих людей, тем больше будет предложений.</p></div>
+    </div>
+    <div class="flow">
+      <div class="step"><b>1. Ролик</b><p>Обычный рофл, как ты и снимаешь</p></div>
+      <div class="step"><b>2. Призыв</b><p>В каждом 2–3-м ролике, в твоём стиле, без «подписывайтесь»</p></div>
+      <div class="step"><b>3. Телеграм</b><p>Закреп сразу объясняет, зачем тут оставаться</p></div>
+    </div>
+  </section>
+
+  <section id="cta">
+    <div class="label">как звать в тг</div>
+    <h2>Призыв тоже может быть <em>шуткой</em></h2>
+    <p class="lead">Не в каждом ролике, а в каждом 2–3-м. Плюс ссылка в шапке и закреплённый комментарий почти под каждым видео.</p>
+    <div class="grid g2">
+      <div class="card ideas"><div class="label">в конце ролика</div><ol>
+        <li>«Ну всё, на сегодня я опозорилась. Продолжение позора в тг, ссылка в шапке»</li>
+        <li>«Я после такого обычно иду страдать в свой телеграм. Заходите, там ещё хуже»</li>
+        <li>«Понравилось, как я опозорилась? В тг я это делаю чаще и без монтажа»</li>
+      </ol></div>
+      <div class="card ideas"><div class="label">внутри скетча</div><ol>
+        <li>«…и сразу пишу об этом в тг, потому что подругам уже стыдно рассказывать»</li>
+        <li>«…пошла записывать кружок в тг, чтобы хоть кто-то меня понял»</li>
+        <li>«…открыла тг и написала: “всё, я больше никогда”. Классика»</li>
+      </ol></div>
+      <div class="card ideas"><div class="label">просто текстом на экране</div><ol>
+        <li>«чем всё закончилось — в тг»</li>
+        <li>«в тг ещё больнее»</li>
+        <li>«там я ещё хуже, заходите»</li>
+        <li>«неудачные дубли этого ролика — в тг»</li>
+      </ol></div>
+      <div class="card hot"><div class="label">отдельный ролик раз в 7–10 дней</div><h3>«Что я выкладываю в тг, чего нет здесь»</h3><p>Покажи 3–4 скрина или кружка из канала, а в конце прямо позови. Ещё вариант названия: «Почему в тг меня уже все ненавидят (и правильно)».</p></div>
+    </div>
+    <div class="grid g2">
+      <div class="card"><div class="label">закреп в телеграме</div><p class="pin">Привет, я Катя, это хот кэт 👋
+Тут я ещё несерьёзнее, чем в тиктоке.
+
+Что тут:
+— моя жизнь без монтажа: куда сходила и как опозорилась
+— неудачные дубли и то, что не вошло в ролики
+— опросы, что снимать дальше (да, вы решаете)
+
+Тикток: @hotkat2004</p></div>
+      <div class="card"><div class="label">что добавить к постам про жизнь</div><ul class="check" data-static>
+        <li><div><b>Кружки</b><span>посты про жизнь отлично заходят в формате кружка: быстро и живо</span></div></li>
+        <li><div><b>Неудачные дубли последнего ролика</b><span>сразу видно, что тут то, чего нет в тиктоке</span></div></li>
+        <li><div><b>Опрос «что снять следующим?»</b><span>2–3 варианта, потом сними победивший и скажи об этом</span></div></li>
+      </ul><p class="small" style="margin-top:14px">Название «хот кэт» оставь, оно совпадает с ником. Можно добавить пояснение: «хот кэт | жиза и позор», а в описании одну строку о том, что тут.</p></div>
+    </div>
+  </section>
+
+  <section id="rubrics">
+    <div class="label">рубрики</div>
+    <h2>Три рубрики <em>из того, что ты уже снимаешь</em></h2>
+    <p class="lead">Зритель должен думать: «о, опять эта рубрика», — и ждать следующую часть. Поэтому одинаковое название, одинаковая обложка и номер части.</p>
+    <div class="grid g3">
+      <div class="card ideas"><div class="label">рубрика 1</div><h3>«Знаете таких?»</h3><p>Ты играешь узнаваемый типаж. Его хочется отметить в комментах.</p><ol>
+        <li>Подруга, которая «я на минутку» и пропадает на три часа</li>
+        <li>Парень, который «вообще не ревнивый»</li>
+        <li>Тот, кто отвечает на голосовое текстом через два дня</li>
+      </ol></div>
+      <div class="card ideas"><div class="label">рубрика 2</div><h3>«Свидание мечты»</h3><p>Серия про свидания с номером части. Каждое хуже предыдущего.</p><ol>
+        <li>Он выбрал место «попроще»</li>
+        <li>Он весь вечер в телефоне, но «очень рад встрече»</li>
+        <li>Свидание мечты: версия из комментариев</li>
+      </ol></div>
+      <div class="card ideas"><div class="label">рубрика 3</div><h3>«Жиза?»</h3><p>Бытовая ситуация, а в конце вопрос, чтобы спорили в комментах.</p><ol>
+        <li>Когда сказала «я быстро в магазин»</li>
+        <li>Новая жизнь с понедельника: понедельник</li>
+        <li>Уборка, которая превратилась в разбор старых фоток</li>
+      </ol></div>
+    </div>
+    <div class="covers">
+      <div class="cov c1"><span>знаете таких?</span><b>#1</b></div>
+      <div class="cov c2"><span>свидание мечты</span><b>#4</b></div>
+      <div class="cov c3"><span>жиза?</span><b>#2</b></div>
+      <div class="cov c4"><span>что я выкладываю в тг</span><b>тг</b></div>
+    </div>
+    <p class="small" style="margin-top:14px">Так могут выглядеть обложки: одна рубрика — один цвет, крупное название и номер части. Профиль сразу начинает выглядеть как проект.</p>
+  </section>
+
+  <section id="vibe">
+    <div class="label">характер</div>
+    <h2>Из «девушки со скетчами» <em>в персонажа</em></h2>
+    <p class="lead">Сейчас ты скорее «девушка, которая снимает смешные ситуации». Когда у автора есть узнаваемый вайб, к нему возвращаются, а не просто смотрят ролик. Выбери один вариант и повторяй его везде: в био, на обложках, в концовках.</p>
+    <div class="grid g3">
+      <div class="card"><div class="ic" data-i="smile"></div><h3>«Я всех таких знаю»</h3><p>Ты каталог людей. Каждый ролик — новый экспонат: подруги, парни, коллеги, мамы.</p></div>
+      <div class="card"><div class="ic" data-i="heart"></div><h3>«Вечно не везёт»</h3><p>Самоирония: свидания, быт, планы — у тебя всё идёт не так, и ты над этим смеёшься первой.</p></div>
+      <div class="card"><div class="ic" data-i="pen"></div><h3>«Hot Kat»</h3><p>Ник уже везде: в TikTok, на YouTube и в тг «хот кэт». Обыграй его: «горячие» ситуации, о которых все думают, но вслух не говорят.</p></div>
+    </div>
+    <div class="note">Маленькие повторяющиеся детали тоже делают персонажа: одна и та же фраза в конце, один жест, одна реакция. Через пару недель зрители начнут ждать её сами.</div>
+  </section>
+
+  <section id="hooks">
+    <div class="label">первые секунды</div>
+    <h2>Тема и конфликт — <em>в первую секунду</em></h2>
+    <p class="lead">Крупный текст на экране сразу, ещё до того, как ты что-то сказала. По нему человек решает, остаться или листать.</p>
+    <div class="grid g2">
+      <div class="card ideas"><ol>
+        <li>«Когда он сказал: “я сам выберу ресторан”»</li>
+        <li>«Знаете таких? Она “уже выхожу” с 18:00»</li>
+        <li>«Свидание мечты #3: он пришёл не один»</li>
+      </ol></div>
+      <div class="card ideas"><ol>
+        <li>«Я, которая пообещала себе лечь в 23:00»</li>
+        <li>«Что я говорю vs что я имею в виду»</li>
+        <li>«Если вы так делаете, мы друзья»</li>
+      </ol></div>
+    </div>
+  </section>
+
+  <section id="profile">
+    <div class="label">профиль</div>
+    <h2>Шапка должна <em>объяснять за тебя</em></h2>
+    <div class="grid g3">
+      <div class="card"><div class="label">вариант 1</div><p class="pin">Катя | жиза, свидания и «знаете таких?» 🙃
+Ещё больше позора в тг 👇</p></div>
+      <div class="card"><div class="label">вариант 2</div><p class="pin">Снимаю то, что вы скидываете подруге со словами «это мы»
+Тг с дублями 👇</p></div>
+      <div class="card"><div class="label">вариант 3</div><p class="pin">Знаю всех таких 😅
+Свидания, быт и люди
+Продолжение в тг 👇</p></div>
+    </div>
+    <div class="grid g2">
+      <div class="card"><div class="ic" data-i="send"></div><h3>Ссылка на тг в шапке</h3><p>Самое простое действие с самым большим эффектом. Без неё все призывы в роликах не работают.</p></div>
+      <div class="card"><div class="ic" data-i="pin"></div><h3>Три закрепа</h3><p>Закрепи по одному лучшему ролику из каждой рубрики. Новый человек сразу видит, что у тебя тут есть.</p></div>
+    </div>
+  </section>
+
+  <section id="plan">
+    <div class="label">что делать</div>
+    <h2>Две недели <em>по шагам</em></h2>
+    <p class="lead">Нажимай на пункт, когда сделала. Ритм: начни с 3–4 роликов в неделю, потом добавляй.</p>
+    <div class="grid g2">
+      <div class="card"><div class="label">неделя 1 · упаковка</div><ul class="check">
+        <li><div><b>Новое био и ссылка на тг</b><span>выбери один вариант выше</span></div></li>
+        <li><div><b>Закреп в тг</b><span>чтобы новый человек сразу понял, куда попал</span></div></li>
+        <li><div><b>Выбрать 3 рубрики и их обложки</b><span>одна рубрика — один цвет</span></div></li>
+        <li><div><b>3–4 ролика по рубрикам</b><span>хотя бы в двух — призыв в тг</span></div></li>
+        <li><div><b>Закреплённый комментарий про тг</b><span>под каждым новым роликом</span></div></li>
+      </ul></div>
+      <div class="card"><div class="label">неделя 2 · ритм</div><ul class="check">
+        <li><div><b>4–5 роликов</b><span>продолжения тех частей, что зашли лучше</span></div></li>
+        <li><div><b>Ролик «что я выкладываю в тг»</b><span>отдельный, с кружками и скринами</span></div></li>
+        <li><div><b>Опрос в тг «что снять дальше»</b><span>и снять победителя</span></div></li>
+        <li><div><b>Перезалить лучшее в YouTube Shorts</b><span>без нового монтажа</span></div></li>
+        <li><div><b>Посмотреть итоги</b><span>какая рубрика зашла сильнее и после каких роликов пришли в тг</span></div></li>
+      </ul></div>
+    </div>
+  </section>
+
+  <div class="final">
+    <div class="label">напоследок</div>
+    <h2>Аудитория у тебя уже есть — <em>осталось её не терять</em></h2>
+    <p>20 тысяч человек уже смеются над твоими роликами. Если закрепить 2–3 рубрики, усилить первые секунды и начать спокойно звать людей в телеграм, рост станет системным, а не случайным.</p>
+    <p>А если захочется пройти этот путь не одной — у Маши есть личное менторство. Просто знай, что такая возможность есть 🤍</p>
+  </div>
+</div>
+
+<script>
+const I={
+send:'<path d="M42 6L4 21l14 5 4 14 7-10 10 8z"/><path d="M18 26l24-20"/>',
+box:'<path d="M6 15l18-9 18 9v18l-18 9-18-9z"/><path d="M6 15l18 9 18-9M24 24v18"/>',
+cal:'<rect x="6" y="10" width="36" height="31" rx="4"/><line x1="6" y1="19" x2="42" y2="19"/><line x1="16" y1="5" x2="16" y2="13"/><line x1="32" y1="5" x2="32" y2="13"/>',
+smile:'<circle cx="24" cy="24" r="18"/><path d="M16 28q8 7 16 0"/><circle cx="18" cy="19" r="1.5"/><circle cx="30" cy="19" r="1.5"/>',
+camera:'<rect x="5" y="14" width="38" height="26" rx="5"/><circle cx="24" cy="27" r="7"/><path d="M17 14l3-5h8l3 5"/>',
+sun:'<circle cx="24" cy="24" r="8"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6M10 10l4 4M34 34l4 4M38 10l-4 4M14 34l-4 4"/>',
+eye:'<path d="M3 24c7-10 14-14 21-14s14 4 21 14c-7 10-14 14-21 14S10 34 3 24z"/><circle cx="24" cy="24" r="6"/>',
+repeat:'<path d="M8 20a14 14 0 0 1 26-6l4-4v11H27l5-4a10 10 0 0 0-19 4"/><path d="M40 28a14 14 0 0 1-26 6l-4 4V27h11l-5 4a10 10 0 0 0 19-4"/>',
+chat:'<path d="M9 9h30a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 7v-7H9a4 4 0 0 1-4-4V13a4 4 0 0 1 4-4z"/>',
+pen:'<path d="M31 7l10 10-23 23H8V30z"/><line x1="26" y1="12" x2="36" y2="22"/>',
+chart:'<path d="M7 41V7"/><path d="M7 41h34"/><path d="M13 33l9-10 7 6 12-14"/>',
+heart:'<path d="M24 40C10 30 6 22 10 15c4-6 11-5 14 1 3-6 10-7 14-1 4 7 0 15-14 25z"/>',
+pin:'<path d="M24 43s14-13 14-24a14 14 0 0 0-28 0c0 11 14 24 14 24z"/><circle cx="24" cy="19" r="5"/>'};
+document.querySelectorAll('.ic[data-i]').forEach(e=>{e.innerHTML='<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">'+I[e.dataset.i]+'</svg>'});
+document.querySelectorAll('#plan .check li').forEach(li=>li.addEventListener('click',()=>li.classList.toggle('done')));
+</script>
+</body></html>
